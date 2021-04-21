@@ -1,2 +1,2 @@
 # godotchess
-A Chess game made using the Godot game engine
+A chess game made using the Godot game engine.
