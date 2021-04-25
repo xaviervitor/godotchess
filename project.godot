@@ -22,6 +22,15 @@ config/icon="res://icon.png"
 
 Constants="*res://Constants.gd"
 
+[display]
+
+window/dpi/allow_hidpi=true
+window/stretch/aspect="keep"
+
+[global]
+
+camera=false
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

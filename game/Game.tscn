@@ -8,8 +8,10 @@
 script = ExtResource( 2 )
 Piece = ExtResource( 3 )
 
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 2, 2 )
+
 [node name="Board" parent="." instance=ExtResource( 1 )]
-position = Vector2( 234.534, 31.245 )
 
 [node name="Pieces" type="Node2D" parent="Board"]
-scale = Vector2( 0.5, 0.5 )

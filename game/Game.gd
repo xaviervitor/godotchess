@@ -1,14 +1,12 @@
 extends Node
 
 export (PackedScene) var Piece
-var board
 
 func _ready():
 	set_board()
 	snap_pieces_position()
 
-func set_board():
-	board = Constants.standard_board
+func set_board(board = Constants.standard_board):
 	for piece in board.black:
 		var instanced_piece = Piece.instance()
 		instanced_piece.type = piece.type
@@ -23,15 +21,13 @@ func set_board():
 		instanced_piece.board_position = Vector2(piece.position[0], piece.position[1])
 		$Board/Pieces.add_child(instanced_piece)
 	
-func snap_pieces_position(piece = null):
-	var pieces
-	if piece == null:
-		pieces = $Board/Pieces.get_children()
-	else: 
-		pieces = [piece]
-	
-	# TODO: make this function with different board sizes to allow for zoom and other resolutions
+func snap_pieces_position(pieces = $Board/Pieces.get_children()):
 	for piece in pieces:
-		var cell_center = Vector2(piece.sprite_region_size / 2, piece.sprite_region_size / 2)
-		var real_position = piece.scale * (piece.board_position * piece.sprite_region_size + cell_center)
-		piece.position = real_position
+		var world_position = $Board/TileMap.map_to_world( \
+				# inverts the position in the y axis
+				Vector2(piece.board_position.x, -piece.board_position.y - 1) \
+				# adjusts the board coordinates to match the tilemap coordinates
+				+ Vector2(-4, 4) \
+				# centers the piece inside the cell 
+				) + Vector2($Board/BoardSprite.texture.get_size() / 16)
+		piece.position = world_position
