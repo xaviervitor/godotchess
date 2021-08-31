@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chessboard.png-ad66c51778bc199713ce59e27ee8d371.stex"
+path="res://.import/dot.png-8f4927301bfe25b36ae6b38c2d837062.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chessboard.png"
-dest_files=[ "res://.import/chessboard.png-ad66c51778bc199713ce59e27ee8d371.stex" ]
+source_file="res://assets/dot.png"
+dest_files=[ "res://.import/dot.png-8f4927301bfe25b36ae6b38c2d837062.stex" ]
 
 [params]
 

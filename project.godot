@@ -27,9 +27,11 @@ config/icon="res://icon.png"
 [autoload]
 
 Constants="*res://Constants.gd"
+Global="*res://Global.gd"
 
 [display]
 
+window/size/height=1024
 window/dpi/allow_hidpi=true
 window/stretch/aspect="keep"
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chesspieces.png-c5acf2c29126cae867ff01986682a7d9.stex"
+path="res://.import/chessboard_ornament.png-9a0bad49d59850b2bc8c120d16a72388.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chesspieces.png"
-dest_files=[ "res://.import/chesspieces.png-c5acf2c29126cae867ff01986682a7d9.stex" ]
+source_file="res://assets/chessboard_ornament.png"
+dest_files=[ "res://.import/chessboard_ornament.png-9a0bad49d59850b2bc8c120d16a72388.stex" ]
 
 [params]
 

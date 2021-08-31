@@ -8,15 +8,15 @@ func _ready() -> void:
 
 func set_board(board = Constants.standard_board) -> void:
 	for piece in board.black:
-		var instanced_piece = Piece.instance()
-		instanced_piece.type = piece.type
-		instanced_piece.color = Constants.PLAYER.black
-		instanced_piece.board_coordinates = Vector2(piece.position[0], piece.position[1])
-		$Board/Pieces.add_child(instanced_piece)
-		
+		add_piece_to_board(Constants.PLAYER.black, piece.type, Vector2(piece.position[0], piece.position[1]))
+	
 	for piece in board.white:
-		var instanced_piece = Piece.instance()
-		instanced_piece.type = piece.type
-		instanced_piece.color = Constants.PLAYER.white
-		instanced_piece.board_coordinates = Vector2(piece.position[0], piece.position[1])
-		$Board/Pieces.add_child(instanced_piece)
+		add_piece_to_board(Constants.PLAYER.white, piece.type, Vector2(piece.position[0], piece.position[1]))
+
+func add_piece_to_board(color, type, piece_position):
+	var instanced_piece = Piece.instance()
+	instanced_piece.type = type
+	instanced_piece.color = color
+	instanced_piece.board_coordinates = piece_position
+	$Board.board_matrix[piece_position.x][piece_position.y] = instanced_piece
+	$Board/Pieces.add_child(instanced_piece)

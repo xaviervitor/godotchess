@@ -14,6 +14,17 @@ enum PIECE_TYPE {
 	king
 }
 
+var DIRECTIONS : Dictionary = {
+	"UP": Vector2(0, 1),
+	"DOWN": Vector2(0, -1),
+	"LEFT": Vector2(-1, 0),
+	"RIGHT": Vector2(1, 0),
+	"UP_RIGHT": Vector2(1, 1),
+	"UP_LEFT": Vector2(-1, 1),
+	"DOWN_RIGHT": Vector2(1, -1),
+	"DOWN_LEFT": Vector2(-1, -1)
+}
+
 var standard_board = {
 	"white": [
 		{"type": PIECE_TYPE.pawn, "position": [0, 1]},
