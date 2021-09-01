@@ -13,6 +13,6 @@ texture = ExtResource( 1 )
 cell_size = Vector2( 256, 256 )
 format = 1
 
-[node name="Sprites" type="Node2D" parent="."]
+[node name="Highlights" type="Node2D" parent="."]
 
 [node name="Pieces" type="Node2D" parent="."]

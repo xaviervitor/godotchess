@@ -19,31 +19,29 @@ func _input(_event) -> void:
 	var mouse_position = get_local_mouse_position()
 	var clicked_board_coordinates = get_board_coordinates(mouse_position)
 	if Input.is_action_just_pressed("click"):
-		if not Global.is_inside_board(clicked_board_coordinates):
-			return
-		var clicked_piece = board_matrix[clicked_board_coordinates.x][clicked_board_coordinates.y]
-		if clicked_piece != null:
-			piece_in_hand = clicked_piece
-			highlight_moves(piece_in_hand.get_possible_moves(board_matrix))
+		if Global.is_inside_board(clicked_board_coordinates):
+			piece_in_hand = board_matrix[clicked_board_coordinates.x][clicked_board_coordinates.y]
+			if piece_in_hand != null: 
+				highlight_moves(piece_in_hand.get_possible_moves(board_matrix))
+			
+	if piece_in_hand:
+		if Input.is_action_just_released("click"):
+			clear_highlighted_moves()
+			if clicked_board_coordinates in piece_in_hand.get_possible_moves(board_matrix):
+				var victim = board_matrix[clicked_board_coordinates.x][clicked_board_coordinates.y]
+				if victim:
+					victim.queue_free()
+					
+				move_piece(piece_in_hand, clicked_board_coordinates)
+				piece_in_hand.board_coordinates = clicked_board_coordinates
+			snap_pieces_position([piece_in_hand])
+			piece_in_hand = null
 
-	if Input.is_action_just_released("click") and piece_in_hand != null:
-		clear_highlighted_moves()
-		if clicked_board_coordinates in piece_in_hand.get_possible_moves(board_matrix):
-			var victim = board_matrix[piece_in_hand.board_coordinates.x][piece_in_hand.board_coordinates.y]
-			if victim != null:
-				board_matrix[piece_in_hand.board_coordinates.x][piece_in_hand.board_coordinates.y] = null
-				
-			board_matrix[clicked_board_coordinates.x][clicked_board_coordinates.y] = piece_in_hand
-			piece_in_hand.board_coordinates = clicked_board_coordinates
-		snap_pieces_position([piece_in_hand])
-		piece_in_hand = null
-
-	if Input.is_action_pressed("click") and piece_in_hand != null:
-		piece_in_hand.drag_to(mouse_position)
+		if Input.is_action_pressed("click"):
+			piece_in_hand.drag_to(mouse_position)
 
 func snap_pieces_position(pieces) -> void:
 	for piece in pieces:
-		
 		piece.position = get_world_coordinates(piece.board_coordinates)
 
 func get_board_coordinates(world_coordinates) -> Vector2:
@@ -63,14 +61,18 @@ func get_world_coordinates(board_coordinates):
 
 func highlight_moves(possible_moves):
 	for move in possible_moves:
-		var sprite = Sprite.new()
-		sprite.position = get_world_coordinates(move)
-		sprite.texture = load("res://assets/dot.png")
-		sprite.modulate = Color(0, 0, 0, 0.25)
+		var highlight = Sprite.new()
+		highlight.position = get_world_coordinates(move)
+		highlight.texture = load("res://assets/dot.png")
+		highlight.modulate = Color(0, 0, 0, 0.25)
 		if board_matrix[move.x][move.y] != null:
-			sprite.scale = sprite.scale * 3
-		$Sprites.add_child(sprite)
+			highlight.scale = highlight.scale * 3
+		$Highlights.add_child(highlight)
 
 func clear_highlighted_moves():
-	for sprite in $Sprites.get_children():
-		sprite.queue_free()
+	for highlight in $Highlights.get_children():
+		highlight.queue_free()
+
+func move_piece(piece, destination):
+	board_matrix[piece.board_coordinates.x][piece.board_coordinates.y] = null
+	board_matrix[destination.x][destination.y] = piece
