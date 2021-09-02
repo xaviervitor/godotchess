@@ -74,5 +74,6 @@ func clear_highlighted_moves():
 		highlight.queue_free()
 
 func move_piece(piece, destination):
+	piece.increase_move_count()
 	board_matrix[piece.board_coordinates.x][piece.board_coordinates.y] = null
 	board_matrix[destination.x][destination.y] = piece

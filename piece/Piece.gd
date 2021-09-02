@@ -6,6 +6,7 @@ var sprite_size = 256
 var type = Constants.PIECE_TYPE.pawn
 var color = Constants.PLAYER.black
 var board_coordinates : Vector2
+var move_count = 0
 
 func _ready() -> void:
 	set_piece_sprite()
@@ -30,6 +31,9 @@ func set_piece_sprite() -> void:
 
 func drag_to(_position) -> void:
 	self.position = _position
+
+func increase_move_count():
+	move_count += 1
 
 func get_possible_moves(board) -> Array:
 	match type:
@@ -61,12 +65,6 @@ func get_pawn_moves(board) -> Array:
 	# capturing
 	moves += get_pawn_captures(board)
 	
-	# en passant
-#	var en_passant_moves = [Vector2(1, 0), Vector2(-1, 0)] if color == Constants.PLAYER.white else [Vector2(-1, 0), Vector2(1, 0)]
-#	for en_passant_move in en_passant_moves:
-#		if is_pawn_capture(en_passant_move, board):
-#			moves.push_back(board_coordinates + en_passant_move)
-	
 	return moves
 
 func get_pawn_captures(board) -> Array:
@@ -79,11 +77,17 @@ func get_pawn_captures(board) -> Array:
 			var piece = board[move.x][move.y]
 			if piece != null and piece.color != self.color:
 				moves.append(move)
-			
-#			var en_passant_move = move + (Vector2(0, -1) if color == Constants.PLAYER.white else Vector2(0, 1))
-#			var victim = board[en_passant_move.x][en_passant_move.y]
-#			if victim:
-#				moves.append(move)
+	
+	#TODO: EN PASSANT
+	# var en_passant_move = move + (Vector2(0, -1) if color == Constants.PLAYER.white else Vector2(0, 1))
+	# var victim = board[en_passant_move.x][en_passant_move.y]
+	# if victim:
+	# 	moves.append(move)
+	# en passant
+	# var en_passant_moves = [Vector2(1, 0), Vector2(-1, 0)] if color == Constants.PLAYER.white else [Vector2(-1, 0), Vector2(1, 0)]
+	# for en_passant_move in en_passant_moves:
+	# 	if is_pawn_capture(en_passant_move, board):
+	# 		moves.push_back(board_coordinates + en_passant_move)
 	
 	return moves
 
@@ -127,14 +131,33 @@ func get_king_moves(board) -> Array:
 	maybe_moves.push_back(Vector2(-1, 1))
 	maybe_moves.push_back(Vector2(-1, -1))
 
+	maybe_moves += get_castling_moves(board)
+	
 	var moves = []
 	for maybe_move in maybe_moves:
 		if is_valid_placing(maybe_move, board):
 			moves.push_back(board_coordinates + maybe_move)
 	
-	# se um rei não se mexeu, e na mesma linha dele tem alguma
-	# torre que também não se mexeu, castling
+	return moves
+
+func get_castling_moves(board) -> Array:
+	var moves = []
 	
+	if move_count != 0:
+		return moves
+
+	# talvez criar um "player"...
+	var tower_left = board[0][board_coordinates.y]
+	var tower_right = board[7][board_coordinates.y]
+	
+	if tower_left != null && board[1][board_coordinates.y] == null && board[2][board_coordinates.y] == null && board[3][board_coordinates.y] == null \
+		&& tower_left.type == Constants.PIECE_TYPE.tower && tower_left.move_count == 0:
+			moves.push_back(Vector2(-2, 0))
+
+	if tower_right != null && board[5][board_coordinates.y] == null && board[6][board_coordinates.y] == null \
+		&& tower_right.type == Constants.PIECE_TYPE.tower && tower_right.move_count == 0:
+			moves.push_back(Vector2(2, 0))
+			
 	return moves
 
 func get_tower_moves(board) -> Array:
