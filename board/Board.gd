@@ -1,5 +1,7 @@
 extends Node2D
 
+signal piece_moved
+
 var board_matrix = [
 	[null, null, null, null, null, null, null, null],
 	[null, null, null, null, null, null, null, null],
@@ -13,32 +15,35 @@ var board_matrix = [
 
 var en_passant_coordinate = Vector2.ZERO
 
-var piece_in_hand : Piece = null
+var held_piece : Piece = null
 
 func _input(_event) -> void:
-	var mouse_position = get_local_mouse_position()
-	var clicked_board_coordinates = get_board_coordinates(mouse_position)
 	if Input.is_action_just_pressed("click"):
+		var mouse_position = get_local_mouse_position()
+		var clicked_board_coordinates = get_board_coordinates(mouse_position)
+		
 		if Global.is_inside_board(clicked_board_coordinates):
-			piece_in_hand = board_matrix[clicked_board_coordinates.x][clicked_board_coordinates.y]
-			if piece_in_hand != null: 
-				highlight_moves(piece_in_hand.get_possible_moves(board_matrix))
-			
-	if piece_in_hand:
+			held_piece = board_matrix[clicked_board_coordinates.x][clicked_board_coordinates.y]
+			if held_piece != null: 
+				if (Global.get_player_turn() != held_piece.color):
+					held_piece = null
+				else: 
+					highlight_moves(held_piece.get_possible_moves(board_matrix))
+		return
+
+	if held_piece:
+		var mouse_position = get_local_mouse_position()
+		var clicked_board_coordinates = get_board_coordinates(mouse_position)
+		
+		if Input.is_action_pressed("click"):
+			held_piece.drag_to(mouse_position)
+
 		if Input.is_action_just_released("click"):
 			clear_highlighted_moves()
-			if clicked_board_coordinates in piece_in_hand.get_possible_moves(board_matrix):
-				var victim = board_matrix[clicked_board_coordinates.x][clicked_board_coordinates.y]
-				if victim:
-					victim.queue_free()
-					
-				move_piece(piece_in_hand, clicked_board_coordinates)
-				piece_in_hand.board_coordinates = clicked_board_coordinates
-			snap_pieces_position([piece_in_hand])
-			piece_in_hand = null
-
-		if Input.is_action_pressed("click"):
-			piece_in_hand.drag_to(mouse_position)
+			if clicked_board_coordinates in held_piece.get_possible_moves(board_matrix):
+				move_piece(held_piece, clicked_board_coordinates)
+			snap_pieces_position([held_piece])
+			held_piece = null
 
 func snap_pieces_position(pieces) -> void:
 	for piece in pieces:
@@ -73,7 +78,20 @@ func clear_highlighted_moves():
 	for highlight in $Highlights.get_children():
 		highlight.queue_free()
 
-func move_piece(piece, destination):
+func move_piece(piece, destination, castling_tower = null):
+	var victim = board_matrix[destination.x][destination.y]
+	if victim:
+		victim.queue_free()
+		victim.free()
+		
 	piece.increase_move_count()
+	if (castling_tower):
+		board_matrix[castling_tower.board_coordinates.x][castling_tower.board_coordinates.y] = null
+		board_matrix[2 if castling_tower.board_coordinates.x == 0 else 5][castling_tower.board_coordinates.y] = castling_tower
+
 	board_matrix[piece.board_coordinates.x][piece.board_coordinates.y] = null
 	board_matrix[destination.x][destination.y] = piece
+	
+	piece.board_coordinates = destination
+	
+	emit_signal("piece_moved")
