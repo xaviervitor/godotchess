@@ -15,13 +15,6 @@ current = true
 zoom = Vector2( 2.2, 2.2 )
 smoothing_enabled = true
 
-[node name="CameraTween" type="Tween" parent="."]
-
 [node name="Board" parent="." instance=ExtResource( 1 )]
-
-[node name="PiecesTween" type="Tween" parent="."]
-
-[node name="PieceTweenTimer" type="Timer" parent="."]
-wait_time = 0.01
 
 [connection signal="piece_moved" from="Board" to="." method="_on_Board_piece_moved"]
