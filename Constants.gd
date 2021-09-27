@@ -63,3 +63,15 @@ var standard_board = {
 		{"type": PIECE_TYPE.tower, "position": [7, 7]},
 	]
 }
+var castling_board = {
+	"white": [
+		{"type": PIECE_TYPE.tower, "position": [0, 0]},
+		{"type": PIECE_TYPE.king, "position": [4, 0]},
+		{"type": PIECE_TYPE.tower, "position": [7, 0]},
+	],
+	"black": [
+		{"type": PIECE_TYPE.tower, "position": [0, 7]},
+		{"type": PIECE_TYPE.king, "position": [4, 7]},
+		{"type": PIECE_TYPE.tower, "position": [7, 7]},
+	]
+}

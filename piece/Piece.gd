@@ -58,7 +58,7 @@ func get_pawn_moves(board) -> Array:
 	if is_valid_pawn(standard_move, board):
 		moves.push_back(board_coordinates + standard_move)
 	# double
-	if (color == Constants.PLAYER.black and board_coordinates.y == 6) or (color == Constants.PLAYER.white and board_coordinates.y == 1):
+	if self.move_count == 0:
 		var double_move = Vector2(0, 2) if color == Constants.PLAYER.white else Vector2(0, -2)
 		if is_valid_pawn(standard_move, board) and is_valid_pawn(double_move, board):
 			moves.push_back(board_coordinates + double_move)
@@ -77,18 +77,16 @@ func get_pawn_captures(board) -> Array:
 			var piece = board[move.x][move.y]
 			if piece != null and piece.color != self.color:
 				moves.append(move)
-	
-	#TODO: EN PASSANT
-	# var en_passant_move = move + (Vector2(0, -1) if color == Constants.PLAYER.white else Vector2(0, 1))
-	# var victim = board[en_passant_move.x][en_passant_move.y]
-	# if victim:
-	# 	moves.append(move)
-	# en passant
-	# var en_passant_moves = [Vector2(1, 0), Vector2(-1, 0)] if color == Constants.PLAYER.white else [Vector2(-1, 0), Vector2(1, 0)]
-	# for en_passant_move in en_passant_moves:
-	# 	if is_pawn_capture(en_passant_move, board):
-	# 		moves.push_back(board_coordinates + en_passant_move)
-	
+
+#	TODO: en passant
+# implement MOVES class... when move.double, set variable on "board", when doing en_passant, 
+#	var en_passant_moves = [Vector2(1, 0), Vector2(-1, 0)] if color == Constants.PLAYER.white else [Vector2(-1, 0), Vector2(1, 0)]
+#	for en_passant_move in en_passant_moves:
+#		en_passant_move = board_coordinates + en_passant_move
+#		var victim = board[en_passant_move.x][en_passant_move.y]
+#		if victim != null and victim.move_count == 1:
+#			print(en_passant_move)
+#			moves.append(en_passant_move + Vector2(0, 1) if color == Constants.PLAYER.white else Vector2(0, -1))
 	return moves
 
 func is_valid_pawn(move: Vector2, board) -> bool:

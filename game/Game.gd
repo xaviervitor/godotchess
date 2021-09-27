@@ -3,6 +3,8 @@ extends Node2D
 export (PackedScene) var Piece
 
 func _ready() -> void:
+	Global.player_turn = Constants.PLAYER.white
+	$Board.connect("piece_moved", self, "_on_Board_piece_moved")
 	set_board()
 	$Board.snap_pieces_position($Board/Pieces.get_children())
 

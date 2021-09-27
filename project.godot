@@ -31,7 +31,8 @@ Global="*res://Global.gd"
 
 [display]
 
-window/size/height=1024
+window/size/width=600
+window/size/always_on_top=true
 window/dpi/allow_hidpi=true
 window/stretch/aspect="keep"
 

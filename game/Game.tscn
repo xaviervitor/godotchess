@@ -12,9 +12,7 @@ Piece = ExtResource( 3 )
 [node name="Camera2D" type="Camera2D" parent="."]
 rotating = true
 current = true
-zoom = Vector2( 2.2, 2.2 )
+zoom = Vector2( 3.5, 3.5 )
 smoothing_enabled = true
 
 [node name="Board" parent="." instance=ExtResource( 1 )]
-
-[connection signal="piece_moved" from="Board" to="." method="_on_Board_piece_moved"]
