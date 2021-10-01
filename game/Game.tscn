@@ -7,7 +7,6 @@
 [node name="Game" type="Node2D"]
 position = Vector2( 1024, 1024 )
 script = ExtResource( 2 )
-Piece = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 rotating = true
@@ -16,3 +15,4 @@ zoom = Vector2( 3.5, 3.5 )
 smoothing_enabled = true
 
 [node name="Board" parent="." instance=ExtResource( 1 )]
+Piece = ExtResource( 3 )
