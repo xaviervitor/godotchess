@@ -237,9 +237,7 @@ func is_valid_placing(move: Vector2, board) -> bool:
 	
 	return true
 
-
 func filter_king_safe_moves(moves, board, en_passant_piece):
-#	var moves = get_all_possible_moves(Global.player_turn, board_matrix, en_passant_piece)
 	var moves_to_remove = []
 	for index in len(moves):
 		var move = moves[index]
@@ -251,8 +249,9 @@ func filter_king_safe_moves(moves, board, en_passant_piece):
 		var test_player_turn = Global.player_turn
 		for next_move in get_all_pseudo_moves(test_player_turn, board, en_passant_piece):
 			var king = get_king(actual_player_turn, board)
-			if (king == null or next_move.destination == king.board_coordinates):
+			if (next_move.destination == king.board_coordinates):
 				moves_to_remove.append(index)
+				break
 		# undo test move
 		test_unmove_piece(Move.new(move.piece, Constants.MOVE_TYPE.SINGLE, starting_position), board, captured_piece)
 	# remove from moves
