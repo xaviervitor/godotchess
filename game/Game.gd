@@ -2,6 +2,7 @@ extends Node2D
 
 func _ready() -> void:
 	$Board.connect("piece_moved", self, "_on_Board_piece_moved")
+	$Board.connect("pawn_promoted", self, "_on_Board_pawn_promoted")
 	set_board()
 	$Board.snap_pieces_position($Board/Pieces.get_children())
 
@@ -23,12 +24,16 @@ func _on_Board_piece_moved():
 	
 	if Global.game_mode == Constants.GAME_MODE.local_multiplayer:
 		var angle_to
-		if $Camera2D.rotation_degrees != 0:
+		if $Camera.rotation_degrees != 0:
 			angle_to = 0
 		else:
 			angle_to = 180
-
-		$Camera2D.rotation_degrees = angle_to
+		
+		$Camera.rotation_degrees = angle_to
 		var pieces = $Board/Pieces.get_children()
 		for piece in pieces:
 			piece.rotation_degrees = angle_to
+
+func _on_Board_pawn_promoted(pawn):
+#	$HUD/PromotionMenu.show()
+	pawn.promote()

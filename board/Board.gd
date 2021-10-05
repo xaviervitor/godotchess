@@ -1,6 +1,7 @@
 extends Node2D
 
 signal piece_moved
+signal pawn_promoted(Piece)
 
 const Move = preload("res://move/Move.gd")
 export (PackedScene) var Piece
@@ -127,11 +128,8 @@ func handle_en_passant(move):
 		en_passant_piece.queue_free()
 		en_passant_piece.free()
 	
-	if move.type == Constants.MOVE_TYPE.DOUBLE:
-		en_passant_piece = move.piece
-	else:
-		en_passant_piece = null
+	en_passant_piece = move.piece if move.type == Constants.MOVE_TYPE.DOUBLE else null
 
 func handle_promotion(move):
-	if move.piece.type == Constants.PIECE_TYPE.pawn:
-		move.piece.promote()
+	if move.piece.type == Constants.PIECE_TYPE.pawn and (move.destination.y == 0 or move.destination.y == 7):
+		emit_signal("pawn_promoted", move.piece)
