@@ -6,7 +6,7 @@ func _ready() -> void:
 	set_board()
 	$Board.snap_pieces_position($Board/Pieces.get_children())
 
-func set_board(board = Constants.promotion_board) -> void:
+func set_board(board = Constants.standard_board) -> void:
 	match board.to_move:
 		"white":
 			Global.player_turn = Constants.PLAYER.white

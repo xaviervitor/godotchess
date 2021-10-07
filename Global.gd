@@ -1,6 +1,6 @@
 extends Node
 
-var game_mode = Constants.GAME_MODE.singleplayer
+var game_mode = Constants.GAME_MODE.local_multiplayer
 var player_turn = Constants.PLAYER.white
 
 func swap_player_turn():
