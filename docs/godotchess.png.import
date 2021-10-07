@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/godotchess.png-6d20c5f41d4d2cb7d53ca9caf738782d.stex"
+path="res://.import/godotchess.png-3f852f4c010913e342c48b2be641f893.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://export/godotchess.png"
-dest_files=[ "res://.import/godotchess.png-6d20c5f41d4d2cb7d53ca9caf738782d.stex" ]
+source_file="res://docs/godotchess.png"
+dest_files=[ "res://.import/godotchess.png-3f852f4c010913e342c48b2be641f893.stex" ]
 
 [params]
 
