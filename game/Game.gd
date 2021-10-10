@@ -1,5 +1,7 @@
 extends Node2D
 
+export (PackedScene) var PromotionScene
+
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
 	$Board.connect("piece_moved", self, "_on_Board_piece_moved")
@@ -37,5 +39,6 @@ func _on_Board_piece_moved():
 			piece.rotation_degrees = angle_to
 
 func _on_Board_pawn_promoted(pawn):
-#	$HUD/PromotionMenu.show()
-	pawn.promote()
+	var promotion_scene = PromotionScene.instance()
+	promotion_scene.piece = pawn
+	$HUD.add_child(promotion_scene)

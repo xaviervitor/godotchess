@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ui/PromotionScene.gd" type="Script" id=1]
+
+[node name="PromotionScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PromotionOverlay" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.25098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PromotionPopup" type="Panel" parent="."]
+margin_left = 224.0
+margin_top = 200.0
+margin_right = 759.0
+margin_bottom = 345.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BishopButton" type="Button" parent="PromotionPopup"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 130.0
+margin_bottom = 130.0
+text = "Bishop"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HorseButton" type="Button" parent="PromotionPopup"]
+margin_left = 145.0
+margin_top = 15.0
+margin_right = 260.0
+margin_bottom = 130.0
+text = "Horse"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TowerButton" type="Button" parent="PromotionPopup"]
+margin_left = 275.0
+margin_top = 15.0
+margin_right = 390.0
+margin_bottom = 130.0
+text = "Tower"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QueenButton" type="Button" parent="PromotionPopup"]
+margin_left = 405.0
+margin_top = 15.0
+margin_right = 520.0
+margin_bottom = 130.0
+text = "Queen"
+__meta__ = {
+"_edit_use_anchors_": false
+}

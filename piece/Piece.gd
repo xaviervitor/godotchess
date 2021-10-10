@@ -31,8 +31,8 @@ func set_piece_sprite() -> void:
 			region_rect = Rect2(sprite_size * 4, color_modifier, sprite_size, sprite_size)
 	$Sprite.region_rect = region_rect
 
-func promote():
-	type = Constants.PIECE_TYPE.queen
+func promote(new_type):
+	type = new_type
 	set_piece_sprite()
 
 func drag_to(_position) -> void:
