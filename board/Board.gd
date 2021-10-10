@@ -47,7 +47,6 @@ func _input(_event) -> void:
 			for move in held_piece_moves:
 				if move.destination == clicked_board_coordinates:
 					make_play(move)
-					emit_signal("piece_moved")
 			snap_pieces_position([held_piece])
 			held_piece = null
 			held_piece_moves = null
@@ -104,6 +103,7 @@ func make_play(move):
 	handle_en_passant(move)
 	handle_promotion(move)
 	move_piece(move)
+	emit_signal("piece_moved")
 
 func move_piece(move):
 	move.piece.increase_move_count()

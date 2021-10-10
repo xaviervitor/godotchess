@@ -1,7 +1,9 @@
 extends Node2D
 
 func _ready() -> void:
+	# warning-ignore:return_value_discarded
 	$Board.connect("piece_moved", self, "_on_Board_piece_moved")
+	# warning-ignore:return_value_discarded
 	$Board.connect("pawn_promoted", self, "_on_Board_pawn_promoted")
 	set_board()
 	$Board.snap_pieces_position($Board/Pieces.get_children())

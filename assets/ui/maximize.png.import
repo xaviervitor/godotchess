@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/maximize.png-0e9fc96dc69a711cac6ec2ed0802e8ac.stex"
+path="res://.import/maximize.png-0e1daa807de157d6b7c81d694a6f5ac5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/maximize.png"
-dest_files=[ "res://.import/maximize.png-0e9fc96dc69a711cac6ec2ed0802e8ac.stex" ]
+source_file="res://assets/ui/maximize.png"
+dest_files=[ "res://.import/maximize.png-0e1daa807de157d6b7c81d694a6f5ac5.stex" ]
 
 [params]
 

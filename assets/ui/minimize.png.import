@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/minimize.png-54bc5476bc31f89ed95605e705e0906a.stex"
+path="res://.import/minimize.png-73f5e4fb3dc8096f3f07bd1b90c6f6a9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/minimize.png"
-dest_files=[ "res://.import/minimize.png-54bc5476bc31f89ed95605e705e0906a.stex" ]
+source_file="res://assets/ui/minimize.png"
+dest_files=[ "res://.import/minimize.png-73f5e4fb3dc8096f3f07bd1b90c6f6a9.stex" ]
 
 [params]
 
