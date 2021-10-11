@@ -1,7 +1,5 @@
 extends Control
 
-signal piece_chosen
-
 var piece : Piece
 
 func _ready():
@@ -28,5 +26,4 @@ func _on_QueenButton_button_up():
 
 func choose_piece(type):
 	piece.promote(type)
-	hide()
-	emit_signal("piece_chosen")
+	queue_free()
