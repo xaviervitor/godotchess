@@ -133,3 +133,29 @@ var promotion_board = {
 		{"type": PIECE_TYPE.king, "position": [4, 7]},
 	]
 }
+
+var check_board = {
+	"to_move": "black",
+	"white": [
+		{"type": PIECE_TYPE.queen, "position": [0, 6]},
+		{"type": PIECE_TYPE.tower, "position": [1, 5]},
+		{"type": PIECE_TYPE.king, "position": [4, 0]},
+	],
+	"black": [
+		{"type": PIECE_TYPE.king, "position": [4, 7]},
+	]
+}
+
+var stale_board = {
+	"to_move": "black",
+	"white": [
+		{"type": PIECE_TYPE.tower, "position": [0, 7]},
+		{"type": PIECE_TYPE.tower, "position": [0, 5]},
+		{"type": PIECE_TYPE.tower, "position": [5, 0]},
+		{"type": PIECE_TYPE.tower, "position": [2, 0]},
+		{"type": PIECE_TYPE.king, "position": [4, 0]},
+	],
+	"black": [
+		{"type": PIECE_TYPE.king, "position": [3, 6]},
+	]
+}

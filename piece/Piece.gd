@@ -42,7 +42,8 @@ func increase_move_count():
 	move_count += 1
 
 func get_legal_moves(board, en_passant_piece) -> Array:
-	return filter_king_safe_moves(get_pseudo_moves(board, en_passant_piece), board, en_passant_piece)
+	var legal_moves = filter_king_safe_moves(get_pseudo_moves(board, en_passant_piece), board, en_passant_piece)
+	return legal_moves
 
 func get_pseudo_moves(board, en_passant_piece = null) -> Array:
 	match type:
@@ -243,13 +244,13 @@ func filter_king_safe_moves(moves, board, en_passant_piece):
 		var move = moves[index]
 		# test move
 		var starting_position = move.piece.board_coordinates
-		var actual_player_turn = Global.player_turn
+		var player_turn = Global.player_turn
+		var other_player_turn = Global.other_player_turn
 		var captured_piece = test_move_piece(move, board)
 		# check for invalid moves
-		var test_player_turn = Global.player_turn
-		for next_move in get_all_pseudo_moves(test_player_turn, board, en_passant_piece):
-			var king = get_king(actual_player_turn, board)
-			if (next_move.destination == king.board_coordinates):
+		for next_move in get_all_pseudo_moves(other_player_turn, board, en_passant_piece):
+			var king = get_king(player_turn, board)
+			if (king != null and next_move.destination == king.board_coordinates):
 				moves_to_remove.append(index)
 				break
 		# undo test move
@@ -267,14 +268,12 @@ func test_move_piece(move, board) -> Piece:
 	var captured_piece = board[move.destination.x][move.destination.y]
 	board[move.destination.x][move.destination.y] = move.piece
 	move.piece.board_coordinates = move.destination
-	Global.swap_player_turn()
 	return captured_piece
 
 func test_unmove_piece(move, board, captured_piece) -> void:
 	board[move.piece.board_coordinates.x][move.piece.board_coordinates.y] = captured_piece
 	board[move.destination.x][move.destination.y] = move.piece
 	move.piece.board_coordinates = move.destination
-	Global.swap_player_turn()
 	
 func get_king(player, board):
 	var king = null
@@ -290,12 +289,4 @@ func get_all_pseudo_moves(player, board, en_passant_piece):
 		for piece in row:
 			if piece != null and piece.color == player:
 				all_moves += piece.get_pseudo_moves(board, en_passant_piece)
-	return all_moves
-
-func get_all_legal_moves(player, board, en_passant_piece):
-	var all_moves = []
-	for row in board:
-		for piece in row:
-			if piece != null and piece.color == player:
-				all_moves += piece.get_legal_moves(board, en_passant_piece)
 	return all_moves

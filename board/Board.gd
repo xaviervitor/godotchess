@@ -2,6 +2,8 @@ extends Node2D
 
 signal piece_moved
 signal pawn_promoted(Piece)
+signal checkmate(player)
+signal stalemate(player)
 
 const Move = preload("res://move/Move.gd")
 export (PackedScene) var Piece
@@ -98,7 +100,7 @@ func make_play(move):
 	if victim:
 		victim.queue_free()
 		victim.free()
-		
+	
 	move_castling_tower(move)
 	handle_en_passant(move)
 	handle_promotion(move)
@@ -133,3 +135,40 @@ func handle_en_passant(move):
 func handle_promotion(move):
 	if move.piece.type == Constants.PIECE_TYPE.pawn and (move.destination.y == 0 or move.destination.y == 7):
 		emit_signal("pawn_promoted", move.piece)
+
+func game_over():
+	var moves = get_all_legal_moves(Global.player_turn)
+	var check = check()
+	if len(moves) == 0:
+		if (check):
+			emit_signal("checkmate", Global.other_player_turn)
+		else:
+			emit_signal("stalemate", Global.other_player_turn)
+		return true
+	return false
+
+func check():
+	var moves = get_all_legal_moves(Global.other_player_turn)
+	var king_position = get_king(Global.player_turn, board_matrix).board_coordinates
+	var check = false
+	for move in moves:
+		if move.destination == king_position:
+			check = true
+	return check
+
+func get_all_legal_moves(player):
+	var all_moves = []
+	for row in board_matrix:
+		for piece in row:
+			if piece != null and piece.color == player:
+				all_moves += piece.get_legal_moves(board_matrix, en_passant_piece)
+	return all_moves
+
+# same function as piece.get_king(). really should clean this up 
+func get_king(player, board):
+	var king = null
+	for row in board:
+		for piece in row:
+			if piece != null and piece.color == player and piece.type == Constants.PIECE_TYPE.king:
+				king = piece
+	return king
