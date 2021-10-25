@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ui/start_scene/ColorGroup.tres" type="ButtonGroup" id=1]
+[ext_resource path="res://ui/start_scene/StartScene.gd" type="Script" id=2]
+
+[node name="StartScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="RichTextLabel" parent="."]
+margin_left = 442.347
+margin_top = 151.441
+margin_right = 442.347
+margin_bottom = 256.441
+text = "Chess!"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorLabel" type="Label" parent="."]
+margin_left = 343.078
+margin_top = 185.344
+margin_right = 437.078
+margin_bottom = 199.344
+text = "Player one is..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WhiteColorButton" type="Button" parent="."]
+margin_left = 343.848
+margin_top = 214.661
+margin_right = 390.848
+margin_bottom = 234.661
+toggle_mode = true
+pressed = true
+group = ExtResource( 1 )
+text = "white"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RandomColorButton" type="Button" parent="."]
+margin_left = 441.711
+margin_top = 214.661
+margin_right = 502.711
+margin_bottom = 234.661
+toggle_mode = true
+group = ExtResource( 1 )
+text = "random"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackColorButton" type="Button" parent="."]
+margin_left = 556.912
+margin_top = 214.661
+margin_right = 601.912
+margin_bottom = 234.661
+toggle_mode = true
+group = ExtResource( 1 )
+text = "black"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Button" parent="."]
+margin_left = 343.0
+margin_top = 265.0
+margin_right = 602.0
+margin_bottom = 322.0
+text = "start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadButton" type="Button" parent="."]
+margin_left = 343.0
+margin_top = 347.0
+margin_right = 602.0
+margin_bottom = 404.0
+text = "load"
+__meta__ = {
+"_edit_use_anchors_": false
+}

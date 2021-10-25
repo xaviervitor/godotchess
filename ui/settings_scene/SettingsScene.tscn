@@ -1,0 +1,111 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ui/settings_scene/SettingsScene.gd" type="Script" id=1]
+
+[node name="SettingsScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsOverlay" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.25098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsPopup" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -136.0
+margin_top = -118.5
+margin_right = 136.0
+margin_bottom = 118.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsLabel" type="Label" parent="SettingsPopup"]
+margin_left = 110.783
+margin_top = 14.7832
+margin_right = 161.783
+margin_bottom = 28.7832
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoardLabel" type="Label" parent="SettingsPopup"]
+margin_left = 16.0
+margin_top = 38.0
+margin_right = 67.0
+margin_bottom = 52.0
+text = "Board:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PiecesLabel" type="Label" parent="SettingsPopup"]
+margin_left = 16.0
+margin_top = 98.0
+margin_right = 67.0
+margin_bottom = 112.0
+text = "Pieces:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConfirmButton" type="Button" parent="SettingsPopup"]
+margin_left = 174.0
+margin_top = 184.0
+margin_right = 255.0
+margin_bottom = 221.0
+text = "Confirm"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CancelButton" type="Button" parent="SettingsPopup"]
+margin_left = 16.0
+margin_top = 184.0
+margin_right = 98.0
+margin_bottom = 222.0
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoardsOptionButton" type="OptionButton" parent="SettingsPopup"]
+margin_left = 16.0
+margin_top = 58.0
+margin_right = 257.0
+margin_bottom = 87.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PiecesOptionButton" type="OptionButton" parent="SettingsPopup"]
+margin_left = 16.0
+margin_top = 116.0
+margin_right = 257.0
+margin_bottom = 145.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundCheckBox" type="CheckBox" parent="SettingsPopup"]
+margin_left = 12.0
+margin_top = 151.61
+margin_right = 79.0
+margin_bottom = 175.61
+pressed = true
+text = "sound"
+__meta__ = {
+"_edit_use_anchors_": false
+}

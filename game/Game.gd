@@ -14,7 +14,7 @@ func _ready() -> void:
 	set_board()
 	$Board.snap_pieces_position($Board/Pieces.get_children())
 
-func set_board(board = Constants.check_board) -> void:
+func set_board(board = Boards.standard_board) -> void:
 	for piece in board.black:
 		$Board.add_piece_to_board(Constants.PLAYER.black, piece.type, Vector2(piece.position[0], piece.position[1]))
 	
@@ -23,10 +23,23 @@ func set_board(board = Constants.check_board) -> void:
 	
 	match board.to_move:
 		"white":
-			Global.set_player_turn(Constants.PLAYER.white)
+			set_player_white()
 		"black":
-			Global.set_player_turn(Constants.PLAYER.black)
-			rotate_board()
+			set_player_black()
+		"random":
+			randomize()
+			var random_number = rand_range(0, 2)
+			if (random_number < 1):
+				set_player_white()
+			else:
+				set_player_black()
+
+func set_player_white():
+	Global.set_player_turn(Constants.PLAYER.white)
+
+func set_player_black():
+	Global.set_player_turn(Constants.PLAYER.black)
+	rotate_board()
 
 func _on_Board_piece_moved():
 	Global.swap_player_turn()

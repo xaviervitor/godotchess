@@ -5,8 +5,9 @@ signal pawn_promoted(Piece)
 signal checkmate(player)
 signal stalemate(player)
 
-const Move = preload("res://move/Move.gd")
 export (PackedScene) var Piece
+const Move = preload("res://move/Move.gd")
+var dot_texture = preload("res://assets/misc/dot.png")
 
 var board_matrix = [
 	[null, null, null, null, null, null, null, null],
@@ -70,13 +71,13 @@ func get_world_coordinates(board_coordinates):
 			# adjusts the board coordinates to match the tilemap coordinates
 			+ Vector2(-4, 3) \
 			# centers the piece inside the cell 
-			) + Vector2($BoardSprite.texture.get_size() / 16)
+			) + Vector2($Sprite.texture.get_size() / 16)
 
 func highlight_moves(possible_moves):
 	for move in possible_moves:
 		var highlight = Sprite.new()
 		highlight.position = get_world_coordinates(move.destination)
-		highlight.texture = load("res://assets/dot.png")
+		highlight.texture = dot_texture
 		highlight.modulate = Color(0, 0, 0, 0.25)
 		if Global.is_inside_board(move.destination) and (board_matrix[move.destination.x][move.destination.y] != null or move.type == Constants.MOVE_TYPE.EN_PASSANT):
 			highlight.scale = highlight.scale * 3
@@ -122,6 +123,7 @@ func move_castling_tower(move):
 	var castling_tower = move.affected_piece
 	var tower_move = Move.new(castling_tower, Constants.MOVE_TYPE.CASTLING, Vector2(king_destination.x + king_move_direction.x * -1, king_destination.y))
 	move_piece(tower_move)
+	$CastlingPlayer.play()
 	snap_pieces_position([castling_tower])
 
 func handle_en_passant(move):

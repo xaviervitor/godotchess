@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chessboard_ornament.png-9a0bad49d59850b2bc8c120d16a72388.stex"
+path="res://.import/settings.png-435f898c4db449a7f67af74c7b04347e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chessboard_ornament.png"
-dest_files=[ "res://.import/chessboard_ornament.png-9a0bad49d59850b2bc8c120d16a72388.stex" ]
+source_file="res://assets/ui/settings.png"
+dest_files=[ "res://.import/settings.png-435f898c4db449a7f67af74c7b04347e.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

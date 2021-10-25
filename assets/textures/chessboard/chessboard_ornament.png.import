@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chessboard_chessdotcom.png-daeda213238122f7d84b9457ca09e75a.stex"
+path="res://.import/chessboard_ornament.png-1ae988529d7c59e36e85234fb6a52e1f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chessboard_chessdotcom.png"
-dest_files=[ "res://.import/chessboard_chessdotcom.png-daeda213238122f7d84b9457ca09e75a.stex" ]
+source_file="res://assets/textures/chessboard/chessboard_ornament.png"
+dest_files=[ "res://.import/chessboard_ornament.png-1ae988529d7c59e36e85234fb6a52e1f.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chesspieces_classic.png-2de5ecd4c286c678a2dd182be692b2a8.stex"
+path="res://.import/chesspieces_ornament.png-eb655954f55c29cec3edb1614a153e2d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chesspieces_classic.png"
-dest_files=[ "res://.import/chesspieces_classic.png-2de5ecd4c286c678a2dd182be692b2a8.stex" ]
+source_file="res://assets/textures/chesspieces/chesspieces_ornament.png"
+dest_files=[ "res://.import/chesspieces_ornament.png-eb655954f55c29cec3edb1614a153e2d.stex" ]
 
 [params]
 

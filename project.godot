@@ -21,12 +21,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Godot Chess"
-run/main_scene="res://game/Game.tscn"
+run/main_scene="res://ui/start_scene/StartScene.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Constants="*res://Constants.gd"
+Boards="*res://Boards.gd"
 Global="*res://Global.gd"
 
 [display]

@@ -1,5 +1,6 @@
 extends Control
 
+
 var piece : Piece
 
 func _ready():

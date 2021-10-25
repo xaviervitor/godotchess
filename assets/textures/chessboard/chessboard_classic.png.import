@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chesspieces_cburnett.png-b51c9d180dae3eadb46eeffb37c25d54.stex"
+path="res://.import/chessboard_classic.png-df0a753c8a1c5071473a478f2d3de295.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chesspieces_cburnett.png"
-dest_files=[ "res://.import/chesspieces_cburnett.png-b51c9d180dae3eadb46eeffb37c25d54.stex" ]
+source_file="res://assets/textures/chessboard/chessboard_classic.png"
+dest_files=[ "res://.import/chessboard_classic.png-df0a753c8a1c5071473a478f2d3de295.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
