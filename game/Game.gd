@@ -31,9 +31,9 @@ func set_board(board = Boards.standard_board) -> void:
 			randomize()
 			var random_number = rand_range(0, 2)
 			if (random_number < 1):
-				set_player_white()
-			else:
 				set_player_black()
+			else:
+				set_player_white()
 
 func set_player_white():
 	Global.set_player_turn(Constants.PLAYER.white)
