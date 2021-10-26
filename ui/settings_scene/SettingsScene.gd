@@ -31,6 +31,7 @@ func _ready():
 		if (path_to_piece_textures + piece_texture == pieces.get_node("Piece").get_node("Sprite").texture.resource_path):
 			$SettingsPopup/PiecesOptionButton.select(idx)
 		idx += 1
+	$SettingsPopup/SoundCheckBox.pressed = Global.sounds_enabled
 
 func _on_ConfirmButton_button_up():
 	var board_texture = load(path_to_board_textures + $SettingsPopup/BoardsOptionButton.get_selected_metadata())
@@ -39,6 +40,8 @@ func _on_ConfirmButton_button_up():
 	board.get_node("Sprite").set_texture(board_texture)
 	for piece in pieces.get_children():
 		piece.get_node("Sprite").set_texture(piece_texture)
+	
+	Global.sounds_enabled = $SettingsPopup/SoundCheckBox.pressed
 	
 	queue_free()
 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/toc.mp3-e5dd37480dc15ffc55fedf2ab51c5e61.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/toc.mp3"
+dest_files=[ "res://.import/toc.mp3-e5dd37480dc15ffc55fedf2ab51c5e61.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

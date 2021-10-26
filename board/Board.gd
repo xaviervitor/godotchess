@@ -113,6 +113,7 @@ func move_piece(move):
 	board_matrix[move.piece.board_coordinates.x][move.piece.board_coordinates.y] = null
 	board_matrix[move.destination.x][move.destination.y] = move.piece
 	move.piece.board_coordinates = move.destination
+	Global.play_sound($MoveSoundPlayer)
 
 func move_castling_tower(move):
 	if (move.type != Constants.MOVE_TYPE.CASTLING):
@@ -123,7 +124,7 @@ func move_castling_tower(move):
 	var castling_tower = move.affected_piece
 	var tower_move = Move.new(castling_tower, Constants.MOVE_TYPE.CASTLING, Vector2(king_destination.x + king_move_direction.x * -1, king_destination.y))
 	move_piece(tower_move)
-	$CastlingPlayer.play()
+	Global.play_sound($CastlingSoundPlayer)
 	snap_pieces_position([castling_tower])
 
 func handle_en_passant(move):

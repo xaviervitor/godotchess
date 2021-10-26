@@ -4,6 +4,8 @@ var game_mode = Constants.GAME_MODE.local_multiplayer
 var player_turn = Constants.PLAYER.white
 var other_player_turn = Constants.PLAYER.black
 
+var sounds_enabled = true
+
 func set_player_turn(player):
 	if player_turn != player:
 		swap_player_turn()
@@ -25,3 +27,7 @@ func player_to_string(player):
 		return "white"
 	elif player == Constants.PLAYER.black:
 		return "black"
+
+func play_sound(player_node):
+	if sounds_enabled:
+		player_node.play()

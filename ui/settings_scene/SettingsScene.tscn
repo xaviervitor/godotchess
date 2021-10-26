@@ -104,7 +104,6 @@ margin_left = 16.0
 margin_top = 175.61
 margin_right = 102.0
 margin_bottom = 211.61
-pressed = true
 text = "sound"
 __meta__ = {
 "_edit_use_anchors_": false
