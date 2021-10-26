@@ -144,9 +144,9 @@ func game_over():
 	var check = check()
 	if len(moves) == 0:
 		if (check):
-			emit_signal("checkmate", Global.other_player_turn)
+			emit_signal("checkmate")
 		else:
-			emit_signal("stalemate", Global.other_player_turn)
+			emit_signal("stalemate")
 		return true
 	return false
 

@@ -1,6 +1,7 @@
 extends Node2D
 
 export (PackedScene) var PromotionScene
+export (PackedScene) var EndScene
 
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
@@ -66,8 +67,16 @@ func _on_Board_pawn_promoted(pawn):
 	promotion_scene.piece = pawn
 	$HUD.add_child(promotion_scene)
 
-func _on_Board_checkmate(player):
-	print("checkmate of ", Global.player_to_string(player))
+func _on_Board_checkmate():
+	var end_scene = EndScene.instance()
+	end_scene.endgame_reason = "checkmate"
+	end_scene.player = Global.player_to_string(Global.other_player_turn)
+	end_scene.other_player = Global.player_to_string(Global.player_turn)
+	$HUD.add_child(end_scene)
 
-func _on_Board_stalemate(player):
-	print("stalemate of ", Global.player_to_string(player))
+func _on_Board_stalemate():
+	var end_scene = EndScene.instance()
+	end_scene.endgame_reason = "stalemate"
+	end_scene.player = Global.player_to_string(Global.other_player_turn)
+	end_scene.other_player = Global.player_to_string(Global.player_turn)
+	$HUD.add_child(end_scene)

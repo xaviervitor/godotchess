@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://ui/start_scene/ColorGroup.tres" type="ButtonGroup" id=1]
 [ext_resource path="res://ui/start_scene/StartScene.gd" type="Script" id=2]
+[ext_resource path="res://assets/ui/icons8-fit-to-width-96.png" type="Texture" id=3]
 
 [node name="StartScene" type="Control"]
 anchor_right = 1.0
@@ -89,6 +90,20 @@ margin_top = 103.378
 margin_right = 274.017
 margin_bottom = 160.378
 text = "start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FullscreenButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -48.0
+margin_top = -48.0
+icon = ExtResource( 3 )
+flat = true
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

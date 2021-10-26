@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://board/Board.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/Game.gd" type="Script" id=2]
 [ext_resource path="res://ui/promotion_scene/PromotionScene.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/HUD/HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui/end_scene/EndScene.tscn" type="PackedScene" id=5]
 
 [node name="Game" type="Node2D"]
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
 PromotionScene = ExtResource( 3 )
+EndScene = ExtResource( 5 )
 
 [node name="Board" parent="." instance=ExtResource( 1 )]
 scale = Vector2( 0.5, 0.5 )

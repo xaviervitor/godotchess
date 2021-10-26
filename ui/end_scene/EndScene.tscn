@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ui/end_scene/EndScene.gd" type="Script" id=1]
+
+[node name="EndScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Overlay" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.25098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Popup" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -165.0
+margin_top = -118.0
+margin_right = 169.0
+margin_bottom = 162.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReasonLabel" type="Label" parent="Popup"]
+margin_left = 128.315
+margin_top = 15.0
+margin_right = 199.315
+margin_bottom = 31.0
+text = "Reason"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="Popup"]
+margin_left = 37.3333
+margin_top = 51.3333
+margin_right = 294.333
+margin_bottom = 192.333
+text = "Description"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton" type="Button" parent="Popup"]
+margin_left = 76.3333
+margin_top = 222.333
+margin_right = 256.333
+margin_bottom = 268.333
+text = "Close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
