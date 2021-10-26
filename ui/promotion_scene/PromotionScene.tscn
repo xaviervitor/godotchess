@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://ui/promotion_scene/PromotionScene.gd" type="Script" id=1]
-[ext_resource path="res://themes/theme.tres" type="Theme" id=2]
 
 [node name="PromotionScene" type="Control"]
 anchor_right = 1.0
@@ -28,7 +27,6 @@ margin_left = -267.5
 margin_top = -72.5
 margin_right = 267.5
 margin_bottom = 72.5
-theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -38,7 +36,6 @@ margin_left = 15.0
 margin_top = 15.0
 margin_right = 130.0
 margin_bottom = 130.0
-theme = ExtResource( 2 )
 text = "Bishop"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -49,7 +46,6 @@ margin_left = 145.0
 margin_top = 15.0
 margin_right = 260.0
 margin_bottom = 130.0
-theme = ExtResource( 2 )
 text = "Horse"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -60,7 +56,6 @@ margin_left = 275.0
 margin_top = 15.0
 margin_right = 390.0
 margin_bottom = 130.0
-theme = ExtResource( 2 )
 text = "Tower"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -71,7 +66,6 @@ margin_left = 405.0
 margin_top = 15.0
 margin_right = 520.0
 margin_bottom = 130.0
-theme = ExtResource( 2 )
 text = "Queen"
 __meta__ = {
 "_edit_use_anchors_": false
