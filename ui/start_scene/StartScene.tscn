@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://ui/start_scene/ColorGroup.tres" type="ButtonGroup" id=1]
 [ext_resource path="res://ui/start_scene/StartScene.gd" type="Script" id=2]
 [ext_resource path="res://assets/ui/icons8-fit-to-width-96.png" type="Texture" id=3]
+[ext_resource path="res://themes/theme.tres" type="Theme" id=4]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/hyperlegible/AtkinsonHyperlegible-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 44
+font_data = SubResource( 1 )
 
 [node name="StartScene" type="Control"]
 anchor_right = 1.0
@@ -13,13 +21,13 @@ __meta__ = {
 }
 
 [node name="TitleLabel" type="RichTextLabel" parent="."]
-margin_left = 459.317
-margin_top = 139.399
-margin_right = 503.317
-margin_bottom = 154.399
+margin_left = 414.0
+margin_top = 67.0
+margin_right = 606.0
+margin_bottom = 123.0
 rect_pivot_offset = Vector2( -1026.52, 34 )
+custom_fonts/normal_font = SubResource( 2 )
 text = "Chess!"
-fit_content_height = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -33,25 +41,26 @@ margin_left = -145.5
 margin_top = -89.0
 margin_right = 145.5
 margin_bottom = 89.0
+theme = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorLabel" type="Label" parent="Panel"]
-margin_left = 17.3373
-margin_top = 15.8739
-margin_right = 111.337
-margin_bottom = 29.8739
+margin_left = 16.6667
+margin_top = 13.8739
+margin_right = 150.667
+margin_bottom = 49.8739
 text = "Player one is..."
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="WhiteColorButton" type="Button" parent="Panel"]
-margin_left = 16.0
-margin_top = 53.0
-margin_right = 76.0
-margin_bottom = 84.0
+margin_left = 15.6667
+margin_top = 52.3333
+margin_right = 88.6667
+margin_bottom = 89.3333
 toggle_mode = true
 pressed = true
 group = ExtResource( 1 )
@@ -61,10 +70,10 @@ __meta__ = {
 }
 
 [node name="RandomColorButton" type="Button" parent="Panel"]
-margin_left = 110.903
-margin_top = 52.3332
-margin_right = 181.903
-margin_bottom = 85.3332
+margin_left = 111.242
+margin_top = 52.9977
+margin_right = 191.242
+margin_bottom = 88.9977
 toggle_mode = true
 group = ExtResource( 1 )
 text = "random"
@@ -73,10 +82,10 @@ __meta__ = {
 }
 
 [node name="BlackColorButton" type="Button" parent="Panel"]
-margin_left = 218.85
-margin_top = 53.0392
-margin_right = 273.85
-margin_bottom = 86.0392
+margin_left = 213.189
+margin_top = 53.3737
+margin_right = 273.189
+margin_bottom = 89.3737
 toggle_mode = true
 group = ExtResource( 1 )
 text = "black"
@@ -101,6 +110,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -48.0
 margin_top = -48.0
+keep_pressed_outside = true
 icon = ExtResource( 3 )
 flat = true
 expand_icon = true
