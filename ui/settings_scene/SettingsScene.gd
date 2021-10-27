@@ -53,13 +53,11 @@ func list_files_in_directory(path):
 	var dir = Directory.new()
 	dir.open(path)
 	dir.list_dir_begin()
-	while true:
-		var file = dir.get_next()
-		if file == "":
-			break
-		elif not file.begins_with(".") and not file.ends_with(".import"):
-			files.append("" + file)
-	dir.list_dir_end()
+	var file = dir.get_next()
+	while file != "":
+		if not file.begins_with(".") and file.ends_with(".import"):
+			files.append(file.replace('.import', ''))
+		file = dir.get_next()
 	return files
 
 func get_texture_name(texture):
