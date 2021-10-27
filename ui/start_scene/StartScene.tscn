@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://ui/start_scene/ColorGroup.tres" type="ButtonGroup" id=1]
 [ext_resource path="res://ui/start_scene/StartScene.gd" type="Script" id=2]
-[ext_resource path="res://assets/ui/icons8-fit-to-width-96.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/fullscreen.png" type="Texture" id=3]
 [ext_resource path="res://themes/theme.tres" type="Theme" id=4]
 
 [sub_resource type="DynamicFontData" id=1]
@@ -12,6 +12,8 @@ font_path = "res://assets/fonts/hyperlegible/AtkinsonHyperlegible-Regular.ttf"
 size = 44
 font_data = SubResource( 1 )
 
+[sub_resource type="StyleBoxEmpty" id=3]
+
 [node name="StartScene" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,14 +22,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TitleLabel" type="RichTextLabel" parent="."]
-margin_left = 414.0
-margin_top = 67.0
-margin_right = 606.0
-margin_bottom = 123.0
-rect_pivot_offset = Vector2( -1026.52, 34 )
-custom_fonts/normal_font = SubResource( 2 )
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -480.0
+margin_top = 66.0
+margin_right = 480.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 2 )
 text = "Chess!"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -110,6 +122,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -48.0
 margin_top = -48.0
+custom_styles/focus = SubResource( 3 )
 keep_pressed_outside = true
 icon = ExtResource( 3 )
 flat = true
