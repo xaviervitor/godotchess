@@ -2,6 +2,4 @@
 
 A chess game made from scratch using the Godot game engine.
 
-This game is currently under development. 
-
 You can play it right [here](https://xaviervitor.github.io/godotchess/)!
