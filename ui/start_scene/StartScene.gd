@@ -1,7 +1,7 @@
 extends Control
 
 var color_group = preload("res://ui/start_scene/ColorGroup.tres")
-var chosen_color = "white"
+var chosen_color = "random"
 func _ready():
 	# warning-ignore:return_value_discarded
 	$FullscreenButton.connect("button_up", self, "_on_FullscreenButton_button_up")
