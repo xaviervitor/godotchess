@@ -63,7 +63,7 @@ margin_left = 8.6667
 margin_top = 13.8739
 margin_right = 142.667
 margin_bottom = 49.8739
-text = "Player one is..."
+text = "Player one plays as..."
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -74,19 +74,19 @@ margin_top = 52.3333
 margin_right = 88.6667
 margin_bottom = 89.3333
 toggle_mode = true
-pressed = true
 group = ExtResource( 1 )
-text = "white"
+text = "whites"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RandomColorButton" type="Button" parent="Panel"]
-margin_left = 111.242
+margin_left = 108.242
 margin_top = 52.9977
-margin_right = 191.242
+margin_right = 188.242
 margin_bottom = 88.9977
 toggle_mode = true
+pressed = true
 group = ExtResource( 1 )
 text = "random"
 __meta__ = {
@@ -94,22 +94,22 @@ __meta__ = {
 }
 
 [node name="BlackColorButton" type="Button" parent="Panel"]
-margin_left = 213.189
+margin_left = 207.189
 margin_top = 53.3737
-margin_right = 273.189
+margin_right = 274.189
 margin_bottom = 89.3737
 toggle_mode = true
 group = ExtResource( 1 )
-text = "black"
+text = "blacks"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="StartButton" type="Button" parent="Panel"]
-margin_left = 15.0169
-margin_top = 103.378
-margin_right = 274.017
-margin_bottom = 160.378
+margin_left = 15.0
+margin_top = 105.0
+margin_right = 276.0
+margin_bottom = 163.0
 text = "start"
 __meta__ = {
 "_edit_use_anchors_": false
