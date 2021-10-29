@@ -59,9 +59,9 @@ __meta__ = {
 }
 
 [node name="ColorLabel" type="Label" parent="Panel"]
-margin_left = 16.6667
+margin_left = 8.6667
 margin_top = 13.8739
-margin_right = 150.667
+margin_right = 142.667
 margin_bottom = 49.8739
 text = "Player one is..."
 __meta__ = {

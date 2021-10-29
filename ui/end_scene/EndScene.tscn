@@ -34,11 +34,11 @@ __meta__ = {
 }
 
 [node name="ReasonLabel" type="Label" parent="Popup"]
-margin_left = 128.315
 margin_top = 15.0
-margin_right = 199.315
-margin_bottom = 31.0
+margin_right = 334.0
+margin_bottom = 51.0
 text = "Reason"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -49,6 +49,7 @@ margin_top = 51.0
 margin_right = 297.0
 margin_bottom = 192.0
 text = "Description"
+autowrap = true
 
 [node name="CloseButton" type="Button" parent="Popup"]
 margin_left = 76.3333

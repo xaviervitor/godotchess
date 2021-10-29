@@ -15,7 +15,7 @@ func _ready() -> void:
 	set_board()
 	$Board.snap_pieces_position($Board/Pieces.get_children())
 
-func set_board(board = Boards.standard_board) -> void:
+func set_board(board = Boards.stale_board) -> void:
 	for piece in board.black:
 		$Board.add_piece_to_board(Constants.PLAYER.black, piece.type, Vector2(piece.position[0], piece.position[1]))
 	
