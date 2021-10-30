@@ -13,6 +13,8 @@ func _ready():
 	$Panel/RandomColorButton.connect("button_up", self, "_on_RandomColorButton_button_up")
 	# warning-ignore:return_value_discarded
 	$Panel/BlackColorButton.connect("button_up", self, "_on_BlackColorButton_button_up")
+	# warning-ignore:return_value_discarded
+	$GithubButton.connect("button_up", self, "_on_GithubButton_button_up")
 
 func _on_FullscreenButton_button_up():
 	OS.window_fullscreen = !OS.window_fullscreen
@@ -29,3 +31,6 @@ func _on_RandomColorButton_button_up():
 
 func _on_BlackColorButton_button_up():
 	chosen_color = "black"
+
+func _on_GithubButton_button_up():
+	OS.shell_open("https://github.com/xaviervitor/godotchess")

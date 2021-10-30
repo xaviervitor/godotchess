@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://ui/start_scene/ColorGroup.tres" type="ButtonGroup" id=1]
 [ext_resource path="res://ui/start_scene/StartScene.gd" type="Script" id=2]
 [ext_resource path="res://assets/ui/fullscreen.png" type="Texture" id=3]
 [ext_resource path="res://themes/theme.tres" type="Theme" id=4]
+[ext_resource path="res://assets/ui/github-mark.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://assets/fonts/hyperlegible/AtkinsonHyperlegible-Regular.ttf"
@@ -126,6 +127,19 @@ custom_styles/focus = SubResource( 3 )
 keep_pressed_outside = true
 icon = ExtResource( 3 )
 flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GithubButton" type="Button" parent="."]
+margin_left = 699.0
+margin_right = 912.0
+margin_bottom = 58.0
+theme = ExtResource( 4 )
+text = "   View on GitHub"
+icon = ExtResource( 5 )
+align = 0
 expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
